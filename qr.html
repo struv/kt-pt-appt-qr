@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids & Teens Medical Group - Appointment Request</title>
+    <style>
+        :root {
+            --primary: #0078be;
+            --secondary: #00a651;
+            --accent: #f47920;
+            --background: #f9f9f9;
+            --dark: #333333;
+            --light: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            max-width: 250px;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            color: var(--secondary);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .form-container {
+            background-color: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .required::after {
+            content: "*";
+            color: red;
+            margin-left: 3px;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0069a9;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--dark);
+            font-size: 14px;
+        }
+        
+        .contact-info {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .contact-method {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .success-icon {
+            color: var(--secondary);
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="image.png" alt="Kids & Teens Medical Group Logo" class="logo">
+            <h1>Schedule Your Appointment</h1>
+            <p class="tagline">Compassionate & Quality Care for Children 0-21</p>
+        </header>
+        
+        <div id="form-section" class="form-container">
+            <form id="appointment-form">
+                <div class="form-group">
+                    <label for="patient-name" class="required">Patient Name</label>
+                    <input type="text" id="patient-name" name="patientName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="patient-dob" class="required">Date of Birth</label>
+                    <input type="date" id="patient-dob" name="patientDOB" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="required">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(XXX) XXX-XXXX" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-type" class="required">Service Type</label>
+                    <select id="service-type" name="serviceType" required>
+                        <option value="">Select a service</option>
+                        <option value="primary-care">Primary Care</option>
+                        <option value="urgent-care">Urgent Care</option>
+                        <option value="telehealth">Telehealth</option>
+                        <option value="family-practice">Family Practice</option>
+                        <option value="after-hours">After-Hours Care</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location-preference">Preferred Location</label>
+                    <select id="location-preference" name="locationPreference">
+                        <option value="">Select preferred location</option>
+                        <option value="location1">Burbank</option>
+                        <option value="location2">Glendale</option>
+                        <option value="location3">Pasadena</option>
+                        <option value="location4">San Fernando</option>
+                        <option value="location5">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="appointment-date">Preferred Date</label>
+                    <input type="date" id="appointment-date" name="appointmentDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="appointment-time">Preferred Time</label>
+                    <select id="appointment-time" name="appointmentTime">
+                        <option value="">Select preferred time</option>
+                        <option value="morning">Morning (9am - 12pm)</option>
+                        <option value="afternoon">Afternoon (12pm - 3pm)</option>
+                        <option value="evening">Evening (3pm - 6pm)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="insurance">Insurance Provider</label>
+                    <input type="text" id="insurance" name="insurance" placeholder="Insurance name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Additional Information</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Any specific concerns or questions?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="new-patient">
+                        <input type="checkbox" id="new-patient" name="newPatient">
+                        New patient to Kids & Teens
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+        </div>
+        
+        <div id="success-message" class="success-message">
+            <div class="success-icon">✓</div>
+            <h2>Thank You!</h2>
+            <p>Your appointment request has been received. Our call center will contact you shortly to confirm your appointment details.</p>
+            <p>If you need immediate assistance, please call us at (626) 795-8811</p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Kids & Teens Medical Group. All Rights Reserved.</p>
+            <div class="contact-info">
+                <div class="contact-method">
+                    <span>Call: (626) 795-8811 | (818) 361-5437</span>
+                </div>
+                <div class="contact-method">
+                    <span>Text: (626) 298-7121 (ENG) | (818) 423-5637 (ESP)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send this data to your backend
+            // For this demo, we'll just show the success message
+            document.getElementById('form-section').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+            
+            // Data that would be sent to your database/call center
+            const formData = new FormData(this);
+            const appointmentData = {};
+            
+            for (let [key, value] of formData.entries()) {
+                appointmentData[key] = value;
+            }
+            
+            console.log('Appointment data to be sent to call center:', appointmentData);
+            
+            // In a real implementation, you would use fetch or XMLHttpRequest to send this data
+            // Example:
+            // fetch('https://your-backend-api.com/appointments', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(appointmentData),
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     console.log('Success:', data);
+            // })
+            // .catch((error) => {
+            //     console.error('Error:', error);
+            // });
+        });
+    </script>
+</body>
+</html>
